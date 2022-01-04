@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:09:55 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/04 11:09:09 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/04 16:41:23 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,26 @@ void	print_special(const std::string &literal)
 	std::cout << "double: " << literal << std::endl;
 }
 
+bool	is_a_number(const std::string &str)
+{
+	int		i = 0;
+	bool	dot_encountered = false;
+
+	if (str[i] == '-')
+		i++;
+	while (i < str.length())
+	{
+		if (!isalnum(str[i]) && (str[i] != '.' || dot_encountered))
+			return false;
+		if (str[i] == '.')
+			dot_encountered = true;
+		i++;
+	}
+}
+
 void	identify_type(const std::string &literal)
 {
+	if (is_a_number(literal))
 	if ((literal[0] >= '0' && literal[0] <= '9')
 			|| (literal[0] == '-' && literal[1] >= '0' && literal[1] <= '9'))
 	{
