@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:09:55 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/04 10:43:24 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/04 11:09:09 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ void	print_usage_message(void)
 	std::cout << std::endl;
 	std::cout << "Usage:" << std::endl;
 	std::cout << "\tconvert <literal>" << std::endl;
+}
+
+void	print_special(const std::string &literal)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << literal << "f" << std::endl;
+	std::cout << "double: " << literal << std::endl;
 }
 
 void	identify_type(const std::string &literal)
@@ -61,6 +69,12 @@ void	identify_type(const std::string &literal)
 		std::cout << "float: " << static_cast<float>(nbr) << ".0f" << std::endl;
 		std::cout << "double: " << static_cast<double>(nbr) << ".0" << std::endl;
 	}
+	else if (literal == "-inf" || literal == "-inff")
+		print_special("-inf");
+	else if (literal == "+inf" || literal == "+inff")
+		print_special("+inf");
+	else if (literal == "nan" || literal == "nanf")
+		print_special("nan");
 	else
 	{
 		std::cerr << "Impossible conversion..." << std::endl;
