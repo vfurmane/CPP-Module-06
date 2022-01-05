@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:42:02 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/05 13:46:56 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:10:51 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ typedef struct s_Data
 }				Data;
 
 uintptr_t	serialize(Data *ptr);
+Data		*deserialize(uintptr_t ptr);
 
 #endif

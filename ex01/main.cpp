@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:36:30 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/05 13:51:26 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/05 13:56:01 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@ int	main(void)
 
 	uintptr_t	ptr = serialize(&data);
 	std::cout << "The address, as a decimal integer, of data is " << ptr << std::endl;
+
+	Data		data_copy = *deserialize(ptr);
+	std::cout << "The address of data is now " << &data_copy << std::endl;
 	return 0;
 }
