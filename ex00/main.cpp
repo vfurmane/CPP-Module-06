@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:09:55 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/04 11:09:09 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/05 11:39:00 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,37 +29,37 @@ void	print_special(const std::string &literal)
 	std::cout << "double: " << literal << std::endl;
 }
 
+bool	is_a_number(const std::string &str)
+{
+	int						i = 0;
+	int						str_length = str.length();
+	bool					dot_encountered = false;
+
+	if (str[i] == '-')
+		i++;
+	while (i < str_length)
+	{
+		if (str[i] == 'f' && i + 1 == str_length)
+			return true;
+		if ((!isdigit(str[i]) && str[i] != '.') || (str[i] == '.' && dot_encountered))
+			return false;
+		if (str[i] == '.')
+			dot_encountered = true;
+		i++;
+	}
+	return true;
+}
+
 void	identify_type(const std::string &literal)
 {
-	if ((literal[0] >= '0' && literal[0] <= '9')
-			|| (literal[0] == '-' && literal[1] >= '0' && literal[1] <= '9'))
+	if (is_a_number(literal))
 	{
-		if (literal.find(".") == std::string::npos)
-		{
-			int	nbr = atoi(literal.c_str());
-			std::cout << "char: " << static_cast<char>(nbr) << std::endl;
-			std::cout << "int: " << nbr << std::endl;
-			std::cout << "float: " << static_cast<float>(nbr) << ".0f" << std::endl;
-			std::cout << "double: " << static_cast<double>(nbr) << ".0" << std::endl;
-		}
-		else
-		{
-			double	nbr = atof(literal.c_str());
-			if (literal[literal.length() - 1] == 'f')
-			{
-				std::cout << "char: " << static_cast<char>(nbr) << std::endl;
-				std::cout << "int: " << static_cast<int>(nbr) << std::endl;
-				std::cout << "float: " << static_cast<float>(nbr) << (static_cast<int>(nbr) == static_cast<float>(nbr) ? ".0" : "") << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(nbr) << (static_cast<int>(nbr) == static_cast<double>(nbr) ? ".0" : "") << std::endl;
-			}
-			else
-			{
-				std::cout << "char: " << static_cast<char>(nbr) << std::endl;
-				std::cout << "int: " << static_cast<int>(nbr) << std::endl;
-				std::cout << "float: " << static_cast<float>(nbr) << (static_cast<int>(nbr) == static_cast<float>(nbr) ? ".0" : "") << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(nbr) << (static_cast<int>(nbr) == static_cast<double>(nbr) ? ".0" : "") << std::endl;
-			}
-		}
+		double	nbr = atof(literal.c_str());
+
+		std::cout << "char: " << static_cast<char>(nbr) << std::endl;
+		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
+		std::cout << "float: " << static_cast<float>(nbr) << (static_cast<int>(nbr) == static_cast<float>(nbr) ? ".0" : "") << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(nbr) << (static_cast<int>(nbr) == static_cast<double>(nbr) ? ".0" : "") << std::endl;
 	}
 	else if (literal.length() == 1)
 	{
