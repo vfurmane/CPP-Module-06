@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:09:55 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/05 11:39:00 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/05 11:43:05 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	identify_type(const std::string &literal)
 	{
 		double	nbr = atof(literal.c_str());
 
-		std::cout << "char: " << static_cast<char>(nbr) << std::endl;
+		if (static_cast<char>(nbr) < 32 || static_cast<char>(nbr) == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: " << static_cast<char>(nbr) << std::endl;
 		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
 		std::cout << "float: " << static_cast<float>(nbr) << (static_cast<int>(nbr) == static_cast<float>(nbr) ? ".0" : "") << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(nbr) << (static_cast<int>(nbr) == static_cast<double>(nbr) ? ".0" : "") << std::endl;
@@ -64,7 +67,11 @@ void	identify_type(const std::string &literal)
 	else if (literal.length() == 1)
 	{
 		char	nbr = literal[0];
-		std::cout << "char: " << nbr << std::endl;
+
+		if (nbr < 32 || nbr == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: " << nbr << std::endl;
 		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
 		std::cout << "float: " << static_cast<float>(nbr) << ".0f" << std::endl;
 		std::cout << "double: " << static_cast<double>(nbr) << ".0" << std::endl;
