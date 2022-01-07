@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 10:24:14 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/07 10:45:25 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/07 11:47:11 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,21 @@ Base	*generate(void)
 	return (builders[rand() % 3])();
 }
 
+void	identify(Base *p)
+{
+	p->identify();
+}
+
+void	identify(Base &p)
+{
+	p.identify();
+}
+
 int	main(void)
 {
 	Base	*base = generate();
+	identify(base);
+	identify(*base);
 	delete base;
 	return 0;
 }
