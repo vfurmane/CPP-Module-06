@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 11:24:42 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/07 11:03:31 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/01/07 13:16:24 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Base
 	public:
 		virtual ~Base(void);
 
-		Base			*generate(void);
 		virtual void	identify(void) const = 0;
 };
 
