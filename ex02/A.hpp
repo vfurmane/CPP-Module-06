@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 11:39:19 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/07 11:03:52 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/02/01 08:56:24 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class A : public Base
 		A(const A &obj);
 
 		A			&operator=(const A &rhs);
-
-		void	identify(void) const;
 
 		static Base	*build(void);
 };

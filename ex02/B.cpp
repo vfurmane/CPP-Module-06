@@ -6,7 +6,7 @@
 /*   By: vfurmane <vfurmane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 11:40:16 by vfurmane          #+#    #+#             */
-/*   Updated: 2022/01/07 11:02:07 by vfurmane         ###   ########.fr       */
+/*   Updated: 2022/02/01 08:56:40 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ B	&B::operator=(const B &rhs)
 {
 	(void)rhs; /* ===== DELETE ===== */
 	return *this;
-}
-
-void	B::identify(void) const
-{
-	std::cout << "B" << std::endl;
 }
 
 Base	*B::build(void)
